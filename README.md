@@ -1,0 +1,2 @@
+# DBOperationWithEFCore
+DBOperationWithEFCore
