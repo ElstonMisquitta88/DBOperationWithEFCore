@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|solutionrelative:dboperationwithefcoreapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\data\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|solutionrelative:dboperationwithefcoreapp\\data\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|solutionrelative:dboperationwithefcoreapp\\data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +42,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Program.cs",
-              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Program.cs",
-              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Program.cs",
-              "RelativeToolTip": "DBOperationWithEFCoreApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "RelativeToolTip": "DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T15:38:28.814Z",
+              "WhenOpened": "2025-10-18T10:18:02.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Language.cs",
+              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Language.cs",
+              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Data\\Language.cs",
+              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Language.cs",
+              "RelativeToolTip": "DBOperationWithEFCoreApp\\Data\\Language.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T10:15:57.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Data\\AppDbContext.cs",
               "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\AppDbContext.cs",
               "RelativeToolTip": "DBOperationWithEFCoreApp\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T15:26:57.852Z",
               "EditorCaption": ""
