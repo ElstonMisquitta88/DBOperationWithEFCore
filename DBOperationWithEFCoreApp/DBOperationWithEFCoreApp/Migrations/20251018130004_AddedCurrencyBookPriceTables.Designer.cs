@@ -4,6 +4,7 @@ using DBOperationWithEFCoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBOperationWithEFCoreApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251018130004_AddedCurrencyBookPriceTables")]
+    partial class AddedCurrencyBookPriceTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,32 +103,6 @@ namespace DBOperationWithEFCoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Indian INR",
-                            Title = "INR"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Dollar",
-                            Title = "Dollar"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Euro",
-                            Title = "Euro"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Dinar",
-                            Title = "Dinar"
-                        });
                 });
 
             modelBuilder.Entity("DBOperationWithEFCoreApp.Data.Language", b =>
@@ -145,32 +122,6 @@ namespace DBOperationWithEFCoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Hindi",
-                            Title = "Hindi"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Tamil",
-                            Title = "Tamil"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Punjabi",
-                            Title = "Punjabi"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Urdu",
-                            Title = "Urdu"
-                        });
                 });
 
             modelBuilder.Entity("DBOperationWithEFCoreApp.Data.Book", b =>
