@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
+    "Method": "GetAllCurrencies",
+    "RelativePath": "api/Currency",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
+    "Method": "GetCurrencyByIDAsync",
+    "RelativePath": "api/Currency/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.LanguageController",
+    "Method": "GetAllLanguages",
+    "RelativePath": "api/Language",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.LanguageController",
+    "Method": "GetAllLanguages1",
+    "RelativePath": "api/Language/GetAllLanguages1",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
