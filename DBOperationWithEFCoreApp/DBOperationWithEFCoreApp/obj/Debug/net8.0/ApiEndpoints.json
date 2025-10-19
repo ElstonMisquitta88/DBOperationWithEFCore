@@ -26,6 +26,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
+    "Method": "GetCurrencyByNameAsync",
+    "RelativePath": "api/Currency/CurrencyByNameAsync/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.LanguageController",
     "Method": "GetAllLanguages",
     "RelativePath": "api/Language",

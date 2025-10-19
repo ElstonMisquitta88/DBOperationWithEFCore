@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|solutionrelative:dboperationwithefcoreapp\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|d:\\github\\dboperationwithefcore\\dboperationwithefcoreapp\\dboperationwithefcoreapp\\controllers\\currencycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E13C42EC-8DF3-4B23-8978-401774F2BC2F}|DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp.csproj|solutionrelative:dboperationwithefcoreapp\\controllers\\currencycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -39,25 +35,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LanguageController.cs",
-              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\LanguageController.cs",
-              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Controllers\\LanguageController.cs",
-              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\LanguageController.cs",
-              "RelativeToolTip": "DBOperationWithEFCoreApp\\Controllers\\LanguageController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T15:08:40.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "CurrencyController.cs",
               "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\CurrencyController.cs",
               "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Controllers\\CurrencyController.cs",
               "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\CurrencyController.cs",
               "RelativeToolTip": "DBOperationWithEFCoreApp\\Controllers\\CurrencyController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAuwC8AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAUwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T07:09:30.594Z",
               "EditorCaption": ""

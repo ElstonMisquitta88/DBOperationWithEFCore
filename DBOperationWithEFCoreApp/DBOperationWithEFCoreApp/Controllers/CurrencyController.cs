@@ -33,8 +33,9 @@ public class CurrencyController : ControllerBase
     ////api/Currency/GetCurrencyByIDAsync/1
     //[HttpGet("GetCurrencyByIDAsync/{Id}")]
 
+
     //api/Currency/1
-    [HttpGet("{Id}")]
+    [HttpGet("{Id:int}")]
 
     public async Task<IActionResult> GetCurrencyByIDAsync([FromRoute] int Id)
     {
@@ -47,8 +48,42 @@ public class CurrencyController : ControllerBase
 
         //Use FindAsync method to get entity by primary key
         var result = await _appDbContext.Currencies.FindAsync(Id);
-        
-        
+
+
+        if (result == null)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return Ok(result);
+        }
+    }
+
+
+
+    //api/Currency/Yen
+    [HttpGet("{name:string}")]
+    public async Task<IActionResult> GetCurrencyByNameAsync([FromRoute] string name)
+    {
+
+        var result1 = await _appDbContext.Currencies.Select(c => new
+        {
+            c.Id,
+            c.Title,
+            c.Description
+        }).Where(x => x.Title == name).FirstAsync();
+
+
+        var result = await _appDbContext.Currencies.Select(c => new
+        {
+            c.Id,
+            c.Title,
+            c.Description
+        }).FirstAsync(x => x.Title == name);
+
+
+
         if (result == null)
         {
             return NotFound();

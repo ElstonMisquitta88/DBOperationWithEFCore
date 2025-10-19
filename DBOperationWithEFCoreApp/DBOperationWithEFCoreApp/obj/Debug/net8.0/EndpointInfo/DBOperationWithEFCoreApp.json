@@ -40,6 +40,28 @@
         }
       }
     },
+    "/api/Currency/CurrencyByNameAsync/{name}": {
+      "get": {
+        "tags": [
+          "Currency"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Language": {
       "get": {
         "tags": [
