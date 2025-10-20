@@ -47,6 +47,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
+    "Method": "GetCurrencyByNameAsync",
+    "RelativePath": "api/Currency/ALL",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ids",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.LanguageController",
     "Method": "GetAllLanguages",
     "RelativePath": "api/Language",

@@ -108,25 +108,42 @@ public class CurrencyController : ControllerBase
 
 
     //api/Currency/Yen?description=From Japan
+
+
+
+
     [HttpGet("{name}")]
     public async Task<IActionResult> GetCurrencyByNameAsync([FromRoute] string name, [FromQuery] string? description)
     {
-
-
         // Explanation: Here we are using FirstOrDefaultAsync with a conditional filter for description.
         // If description is provided, it will be included in the filter; otherwise, it will be ignored.
         // This allows for more flexible querying based on the presence of the description parameter.
 
+        //var result = await _appDbContext.Currencies.Select(c => new
+        //{
+        //    c.Id,
+        //    c.Title,
+        //    c.Description
+        //}).FirstOrDefaultAsync
+        //(
+        //     x => x.Title == name
+        //     && (string.IsNullOrEmpty(description) || x.Description == description) // Conditional filter for description
+        //);
+
+
+        // This help in performance when multiple records are expected
+        // Explanation: Here we are using Where to filter records based on the provided name and optional description.
+        // This approach retrieves all matching records, which is more efficient when multiple entries are expected.
         var result = await _appDbContext.Currencies.Select(c => new
         {
             c.Id,
             c.Title,
             c.Description
-        }).FirstOrDefaultAsync
+        }).Where
         (
              x => x.Title == name
-             && (string.IsNullOrEmpty(description) || x.Description == description) // Conditional filter for description
-        );
+             && (string.IsNullOrEmpty(description) || x.Description == description)
+        ).ToListAsync();
 
         if (result == null)
         {
@@ -139,6 +156,21 @@ public class CurrencyController : ControllerBase
     }
 
 
+
+    [HttpPost("ALL")]
+    public async Task<IActionResult> GetCurrencyByNameAsync([FromBody] List<int> ids)
+    {
+        //var ids=new List<int>{1,2,3,9};
+        var result = await _appDbContext.Currencies.Select(c => new
+        {
+            c.Id,
+            c.Title,
+            c.Description
+        }).Where(x => ids.Contains(x.Id))
+          .ToListAsync();
+
+        return Ok(result);
+    }
 
 
 }
