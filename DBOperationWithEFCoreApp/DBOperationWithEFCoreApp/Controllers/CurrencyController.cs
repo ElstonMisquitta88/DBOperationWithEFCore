@@ -36,7 +36,6 @@ public class CurrencyController : ControllerBase
 
     //api/Currency/1
     [HttpGet("{Id:int}")]
-
     public async Task<IActionResult> GetCurrencyByIDAsync([FromRoute] int Id)
     {
         //var result = await _appDbContext.Currencies.Select(c => new
@@ -62,27 +61,72 @@ public class CurrencyController : ControllerBase
 
 
 
-    //api/Currency/Yen
-    [HttpGet("{name:string}")]
-    public async Task<IActionResult> GetCurrencyByNameAsync([FromRoute] string name)
+    ////api/Currency/Euro/Euro
+    //[HttpGet("{name},{description}")]
+    //public async Task<IActionResult> GetCurrencyByNameAsync([FromRoute] string name, [FromRoute] string? description)
+    //{
+    //    // [+] both this will work the same way no Performance difference
+
+    //    //var result1 = await _appDbContext.Currencies.Select(c => new
+    //    //{
+    //    //    c.Id,
+    //    //    c.Title,
+    //    //    c.Description
+    //    //}).Where(x => x.Title == name).FirstAsync();
+
+
+    //    //var result = await _appDbContext.Currencies.Select(c => new
+    //    //{
+    //    //    c.Id,
+    //    //    c.Title,
+    //    //    c.Description
+    //    //}).FirstOrDefaultAsync(x => x.Title == name);
+
+    //    var result = await _appDbContext.Currencies.Select(c => new
+    //    {
+    //        c.Id,
+    //        c.Title,
+    //        c.Description
+    //    }).FirstOrDefaultAsync
+    //    (x => x.Title == name
+    //    && x.Description == description
+    //    );
+
+    //    // [-] both this will work the same way no Performance difference
+
+
+    //    if (result == null)
+    //    {
+    //        return NotFound();
+    //    }
+    //    else
+    //    {
+    //        return Ok(result);
+    //    }
+    //}
+
+
+
+    //api/Currency/Yen?description=From Japan
+    [HttpGet("{name}")]
+    public async Task<IActionResult> GetCurrencyByNameAsync([FromRoute] string name, [FromQuery] string? description)
     {
 
-        var result1 = await _appDbContext.Currencies.Select(c => new
-        {
-            c.Id,
-            c.Title,
-            c.Description
-        }).Where(x => x.Title == name).FirstAsync();
 
+        // Explanation: Here we are using FirstOrDefaultAsync with a conditional filter for description.
+        // If description is provided, it will be included in the filter; otherwise, it will be ignored.
+        // This allows for more flexible querying based on the presence of the description parameter.
 
         var result = await _appDbContext.Currencies.Select(c => new
         {
             c.Id,
             c.Title,
             c.Description
-        }).FirstAsync(x => x.Title == name);
-
-
+        }).FirstOrDefaultAsync
+        (
+             x => x.Title == name
+             && (string.IsNullOrEmpty(description) || x.Description == description) // Conditional filter for description
+        );
 
         if (result == null)
         {
@@ -93,5 +137,8 @@ public class CurrencyController : ControllerBase
             return Ok(result);
         }
     }
+
+
+
 
 }

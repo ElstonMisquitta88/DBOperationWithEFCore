@@ -40,7 +40,7 @@
         }
       }
     },
-    "/api/Currency/CurrencyByNameAsync/{name}": {
+    "/api/Currency/{name}": {
       "get": {
         "tags": [
           "Currency"
@@ -50,6 +50,13 @@
             "name": "name",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
             "schema": {
               "type": "string"
             }
