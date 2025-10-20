@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "AddNewBook",
+    "RelativePath": "api/Books",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookmodel",
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "GetAllBooks",
+    "RelativePath": "api/Books",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
     "Method": "GetAllCurrencies",
     "RelativePath": "api/Currency",

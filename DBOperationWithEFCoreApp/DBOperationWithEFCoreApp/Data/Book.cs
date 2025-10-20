@@ -13,5 +13,5 @@ public class Book
     // This will create Foreign Key Relationship with Language Table
     public int LanguageID { get; set; }
 
-    public Language Language { get; set; }
+    public Language? Language { get; set; }
 }
