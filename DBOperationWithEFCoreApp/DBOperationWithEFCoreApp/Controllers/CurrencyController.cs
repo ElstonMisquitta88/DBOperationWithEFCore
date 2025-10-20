@@ -161,12 +161,14 @@ public class CurrencyController : ControllerBase
     public async Task<IActionResult> GetCurrencyByNameAsync([FromBody] List<int> ids)
     {
         //var ids=new List<int>{1,2,3,9};
-        var result = await _appDbContext.Currencies.Select(c => new
-        {
-            c.Id,
-            c.Title,
-            c.Description
-        }).Where(x => ids.Contains(x.Id))
+        var result = await _appDbContext.Currencies
+            .Where(x => ids.Contains(x.Id))
+            .Select(c => new
+            {
+                Id = c.Id,
+                Title = c.Title,
+                Description = c.Description
+            })
           .ToListAsync();
 
         return Ok(result);
