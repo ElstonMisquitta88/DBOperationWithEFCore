@@ -107,11 +107,20 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         {
             existingBook.Title = bookmodel.Title;
             existingBook.Description = bookmodel.Description;
-            //existingBook.NoofPages = bookmodel.NoofPages;
-            //existingBook.IsActive = bookmodel.IsActive;
-            //existingBook.LanguageID = bookmodel.LanguageID;
             await _appDbContext.SaveChangesAsync();
             return Ok(bookmodel);
         }
+    }
+
+
+
+
+    // Update Book Record - Single Database Hit
+    [HttpPut("UpdateBookWithSingleQuery")]
+    public async Task<IActionResult> UpdateBookWithSingleQuery([FromBody] Book bookmodel)
+    {
+        _appDbContext.Update(bookmodel);
+        await _appDbContext.SaveChangesAsync();
+        return Ok(bookmodel);
     }
 }

@@ -89,6 +89,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "UpdateBookWithSingleQuery",
+    "RelativePath": "api/Books/UpdateBookWithSingleQuery",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookmodel",
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
     "Method": "GetAllCurrencies",
     "RelativePath": "api/Currency",
