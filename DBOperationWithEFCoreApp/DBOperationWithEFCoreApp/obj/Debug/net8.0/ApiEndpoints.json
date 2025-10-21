@@ -26,6 +26,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "AddBooks",
+    "RelativePath": "api/Books/Bulk",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookmodel",
+        "Type": "System.Collections.Generic.List\u00601[[DBOperationWithEFCoreApp.Data.Book, DBOperationWithEFCoreApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.CurrencyController",
     "Method": "GetAllCurrencies",
     "RelativePath": "api/Currency",

@@ -18,10 +18,21 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
         // Return the added book with its generated ID
         // Object ID will be generated after SaveChangesAsync.
-        return Ok(bookmodel); 
+        return Ok(bookmodel);
     }
 
 
+
+    [HttpPost("Bulk")]
+    public async Task<IActionResult> AddBooks([FromBody] List<Book> bookmodel)
+    {
+        await _appDbContext.Books.AddRangeAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
+        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
+
+        // Return the added book with its generated ID
+        // Object ID will be generated after SaveChangesAsync.
+        return Ok(bookmodel);
+    }
 
 
     [HttpGet]

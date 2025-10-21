@@ -25,19 +25,6 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Book.cs",
-              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
-              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Data\\Book.cs",
-              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
-              "RelativeToolTip": "DBOperationWithEFCoreApp\\Data\\Book.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T16:28:01.262Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
             },
@@ -55,13 +42,25 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "RelativeToolTip": "DBOperationWithEFCoreApp\\Data\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T16:28:01.262Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BooksController.cs",
               "DocumentMoniker": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "DBOperationWithEFCoreApp\\Controllers\\BooksController.cs",
               "ToolTip": "D:\\GitHub\\DBOperationWithEFCore\\DBOperationWithEFCoreApp\\DBOperationWithEFCoreApp\\Controllers\\BooksController.cs",
               "RelativeToolTip": "DBOperationWithEFCoreApp\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwCcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T16:20:57.961Z",
               "EditorCaption": ""
@@ -76,8 +75,7 @@
               "RelativeToolTip": "DBOperationWithEFCoreApp\\Controllers\\CurrencyController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T07:09:30.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T07:09:30.594Z"
             }
           ]
         }
