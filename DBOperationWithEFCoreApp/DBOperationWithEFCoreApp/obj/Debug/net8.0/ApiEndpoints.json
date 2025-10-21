@@ -23,6 +23,32 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "AddwithAuthor",
+    "RelativePath": "api/Books/AddwithAuthor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookmodel",
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

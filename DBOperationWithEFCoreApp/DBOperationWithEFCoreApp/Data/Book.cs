@@ -8,10 +8,19 @@ public class Book
     public int NoofPages { get; set; }
     public bool IsActive { get; set; }
     public DateTime CreatedOn { get; set; }
+    public int? AuthorId { get; set; }
+
+
+
+
 
 
     // This will create Foreign Key Relationship with Language Table
     public int LanguageID { get; set; }
 
     public Language? Language { get; set; }
+
+    public Author? Author { get; set; }
+
+
 }

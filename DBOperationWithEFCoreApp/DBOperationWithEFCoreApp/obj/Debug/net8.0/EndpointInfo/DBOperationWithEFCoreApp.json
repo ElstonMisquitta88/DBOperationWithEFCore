@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Books/AddwithAuthor": {
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Book"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Books": {
       "post": {
         "tags": [
@@ -41,7 +72,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
           }
         }
       }
@@ -220,6 +268,24 @@
   },
   "components": {
     "schemas": {
+      "Author": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Book": {
         "type": "object",
         "properties": {
@@ -246,12 +312,20 @@
             "type": "string",
             "format": "date-time"
           },
+          "authorId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "languageID": {
             "type": "integer",
             "format": "int32"
           },
           "language": {
             "$ref": "#/components/schemas/Language"
+          },
+          "author": {
+            "$ref": "#/components/schemas/Author"
           }
         },
         "additionalProperties": false

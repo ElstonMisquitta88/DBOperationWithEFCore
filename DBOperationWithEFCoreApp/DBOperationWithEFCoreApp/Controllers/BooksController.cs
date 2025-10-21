@@ -10,6 +10,27 @@ namespace DBOperationWithEFCoreApp.Controllers;
 public class BooksController(AppDbContext _appDbContext) : ControllerBase
 {
 
+
+    [HttpPost("AddwithAuthor")]
+    public async Task<IActionResult> AddwithAuthor([FromBody] Book bookmodel)
+    {
+        //var author = new Author()
+        //{
+        //    Name = "Test_Author",
+        //    Email = "Test_Author@gmail.com"
+        //};
+
+        //bookmodel.Author = author;
+
+        await _appDbContext.Books.AddAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
+        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
+
+        // Return the added book with its generated ID
+        // Object ID will be generated after SaveChangesAsync.
+        return Ok(bookmodel);
+    }
+
+
     [HttpPost]
     public async Task<IActionResult> AddNewBook([FromBody] Book bookmodel)
     {
@@ -36,7 +57,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
 
     [HttpGet]
-    public async Task<IActionResult> GetAllBooks()
+    public async Task<ActionResult<Book>> GetAllBooks()
     {
         var books = await _appDbContext.Books
             .Include(b => b.Language) // Include must come before Select

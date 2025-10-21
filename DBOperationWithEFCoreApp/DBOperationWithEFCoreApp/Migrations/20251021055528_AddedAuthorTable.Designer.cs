@@ -4,6 +4,7 @@ using DBOperationWithEFCoreApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBOperationWithEFCoreApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251021055528_AddedAuthorTable")]
+    partial class AddedAuthorTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +34,11 @@ namespace DBOperationWithEFCoreApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -48,9 +53,6 @@ namespace DBOperationWithEFCoreApp.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AuthorId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -71,8 +73,6 @@ namespace DBOperationWithEFCoreApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
 
                     b.HasIndex("LanguageID");
 
@@ -124,38 +124,6 @@ namespace DBOperationWithEFCoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Indian INR",
-                            Title = "INR"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Dollar",
-                            Title = "Dollar"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Euro",
-                            Title = "Euro"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Dinar",
-                            Title = "Dinar"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Yen",
-                            Title = "Yen"
-                        });
                 });
 
             modelBuilder.Entity("DBOperationWithEFCoreApp.Data.Language", b =>
@@ -175,47 +143,15 @@ namespace DBOperationWithEFCoreApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Hindi",
-                            Title = "Hindi"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Tamil",
-                            Title = "Tamil"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Punjabi",
-                            Title = "Punjabi"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Urdu",
-                            Title = "Urdu"
-                        });
                 });
 
             modelBuilder.Entity("DBOperationWithEFCoreApp.Data.Book", b =>
                 {
-                    b.HasOne("DBOperationWithEFCoreApp.Data.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
-
                     b.HasOne("DBOperationWithEFCoreApp.Data.Language", "Language")
                         .WithMany("Books")
                         .HasForeignKey("LanguageID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Author");
 
                     b.Navigation("Language");
                 });
