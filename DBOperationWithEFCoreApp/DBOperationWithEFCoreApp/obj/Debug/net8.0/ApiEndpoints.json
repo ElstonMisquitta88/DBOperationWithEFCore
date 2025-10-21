@@ -37,6 +37,27 @@
   },
   {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "UpdateBook",
+    "RelativePath": "api/Books/{Bookid}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Bookid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookmodel",
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
     "Method": "AddwithAuthor",
     "RelativePath": "api/Books/AddwithAuthor",
     "HttpMethod": "POST",

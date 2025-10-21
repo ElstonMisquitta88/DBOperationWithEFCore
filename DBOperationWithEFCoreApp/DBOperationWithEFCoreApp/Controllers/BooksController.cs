@@ -10,7 +10,7 @@ namespace DBOperationWithEFCoreApp.Controllers;
 public class BooksController(AppDbContext _appDbContext) : ControllerBase
 {
 
-
+    //Adding Record with Related Data
     [HttpPost("AddwithAuthor")]
     public async Task<IActionResult> AddwithAuthor([FromBody] Book bookmodel)
     {
@@ -29,6 +29,12 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         // Object ID will be generated after SaveChangesAsync.
         return Ok(bookmodel);
     }
+
+
+
+
+
+
 
 
     [HttpPost]
@@ -81,4 +87,31 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         return Ok(books);
     }
 
+
+
+
+    // Update Book Record - However, there are 2 database hits happening here
+    //(1) to fetch the existing record and (2) to save the updated record.
+
+    [HttpPut("{Bookid}")]
+    public async Task<IActionResult> UpdateBook([FromRoute] int Bookid, [FromBody] Book bookmodel)
+    {
+
+        //Check if book exists
+        var existingBook = await _appDbContext.Books.FindAsync(Bookid);
+        if (existingBook == null)
+        {
+            return NotFound($"Book with ID {Bookid} not found.");
+        }
+        else
+        {
+            existingBook.Title = bookmodel.Title;
+            existingBook.Description = bookmodel.Description;
+            //existingBook.NoofPages = bookmodel.NoofPages;
+            //existingBook.IsActive = bookmodel.IsActive;
+            //existingBook.LanguageID = bookmodel.LanguageID;
+            await _appDbContext.SaveChangesAsync();
+            return Ok(bookmodel);
+        }
+    }
 }
