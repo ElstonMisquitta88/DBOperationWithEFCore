@@ -123,4 +123,43 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         await _appDbContext.SaveChangesAsync();
         return Ok(bookmodel);
     }
+
+
+
+
+    // Update Book Record in Bulk - Single Database Hit
+    [HttpPut("UpdateBooksInBulk")]
+    public async Task<IActionResult> UpdateBooksInBulk()
+    {
+        // (A) This is slower way as it fetches records first and then updates
+        // Change Tracker used here
+        /*
+            _appDbContext.Books.UpdateRange(
+                new Book { Id = 1, Title = "Bulk Updated Title 1", Description = "Bulk Updated Description 1" },
+                new Book { Id = 2, Title = "Bulk Updated Title 2", Description = "Bulk Updated Description 2" }
+            );
+        */
+
+        // (B) This is faster way as it directly updates records in DB
+        // Change Tracker not used here
+
+
+        //await _appDbContext.Books
+        //    .Where(x=>x.IsActive==true)
+        //    .ExecuteUpdateAsync(setters => setters
+        //    .SetProperty(b => b.Title,  "Updated Title Bulk")
+        //    .SetProperty(b => b.Description,  "Updated Description Bulk")
+        //);
+
+        var _valtoupdate = new List<int> { 1007, 1008 , 1009 };
+        await _appDbContext.Books
+          .Where(x => _valtoupdate.Contains(x.Id))
+          .ExecuteUpdateAsync(setters => setters
+          .SetProperty(b => b.Title, "Updated Title Bulk V7")
+          .SetProperty(b => b.Description, "Updated Description Bulk V7")
+      );
+        return Ok();
+    }
+
+
 }

@@ -90,6 +90,16 @@
   },
   {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "UpdateBooksInBulk",
+    "RelativePath": "api/Books/UpdateBooksInBulk",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
     "Method": "UpdateBookWithSingleQuery",
     "RelativePath": "api/Books/UpdateBookWithSingleQuery",
     "HttpMethod": "PUT",

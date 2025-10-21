@@ -207,6 +207,18 @@
         }
       }
     },
+    "/api/Books/UpdateBooksInBulk": {
+      "put": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Currency": {
       "get": {
         "tags": [
