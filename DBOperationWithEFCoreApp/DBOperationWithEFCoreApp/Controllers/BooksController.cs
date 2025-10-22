@@ -163,9 +163,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
     #endregion
 
-
     #region DELETEMethods
-    #endregion
 
     // Delete with Single Database Hit
     [HttpDelete("{BookId}")]
@@ -180,11 +178,32 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         {
             _appDbContext.Books.Remove(book); // Marks the entity for deletion
             await _appDbContext.SaveChangesAsync(); // Executes the deletion in the database
-        } 
+        }
         return Ok($"Book with ID {BookId} Deleted.");
     }
 
 
+
+    [HttpDelete("DeleteBookinBulkAsync")]
+    public async Task<IActionResult> DeleteBookinBulkAsync()
+    {
+        // (A) This is slower way as it fetches records first and then deletes
+        // Query hits the database as per the number of records to be deleted
+
+        //var books = await _appDbContext.Books.Where(x => x.Id < 1009).ToListAsync();
+        //_appDbContext.Books.RemoveRange(books);
+        //await _appDbContext.SaveChangesAsync();
+
+
+        // (B) This is faster way as it directly deletes records in DB
+        // Single Query to database
+        // No tracking used here
+        var books = await _appDbContext.Books.Where(x => x.Id == 1008).ExecuteDeleteAsync();
+        return Ok();
+    }
+
+
+    #endregion
 
 
 }
