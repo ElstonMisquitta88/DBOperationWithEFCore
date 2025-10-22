@@ -58,6 +58,22 @@
   },
   {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "DeleteBookByIDAsync",
+    "RelativePath": "api/Books/{BookId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
     "Method": "AddwithAuthor",
     "RelativePath": "api/Books/AddwithAuthor",
     "HttpMethod": "POST",

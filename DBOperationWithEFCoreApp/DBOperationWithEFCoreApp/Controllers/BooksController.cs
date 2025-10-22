@@ -151,7 +151,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         //    .SetProperty(b => b.Description,  "Updated Description Bulk")
         //);
 
-        var _valtoupdate = new List<int> { 1007, 1008 , 1009 };
+        var _valtoupdate = new List<int> { 1007, 1008, 1009 };
         await _appDbContext.Books
           .Where(x => _valtoupdate.Contains(x.Id))
           .ExecuteUpdateAsync(setters => setters
@@ -159,6 +159,26 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
           .SetProperty(b => b.Description, "Updated Description Bulk V7")
       );
         return Ok();
+    }
+
+
+
+
+    // Delete with Single Database Hit
+    [HttpDelete("{BookId}")]
+    public async Task<IActionResult> DeleteBookByIDAsync([FromRoute] int BookId)
+    {
+        var book = await _appDbContext.Books.FindAsync(BookId);
+        if (book == null)
+        {
+            return NotFound($"Book with ID {BookId} not found.");
+        }
+        else
+        {
+            _appDbContext.Books.Remove(book); // Marks the entity for deletion
+            await _appDbContext.SaveChangesAsync(); // Executes the deletion in the database
+        } 
+        return Ok($"Book with ID {BookId} Deleted.");
     }
 
 
