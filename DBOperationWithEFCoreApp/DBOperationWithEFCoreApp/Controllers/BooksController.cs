@@ -10,57 +10,7 @@ namespace DBOperationWithEFCoreApp.Controllers;
 public class BooksController(AppDbContext _appDbContext) : ControllerBase
 {
 
-    //Adding Record with Related Data
-    [HttpPost("AddwithAuthor")]
-    public async Task<IActionResult> AddwithAuthor([FromBody] Book bookmodel)
-    {
-        //var author = new Author()
-        //{
-        //    Name = "Test_Author",
-        //    Email = "Test_Author@gmail.com"
-        //};
-
-        //bookmodel.Author = author;
-
-        await _appDbContext.Books.AddAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
-        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
-
-        // Return the added book with its generated ID
-        // Object ID will be generated after SaveChangesAsync.
-        return Ok(bookmodel);
-    }
-
-
-
-
-
-
-
-
-    [HttpPost]
-    public async Task<IActionResult> AddNewBook([FromBody] Book bookmodel)
-    {
-        await _appDbContext.Books.AddAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
-        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
-
-        // Return the added book with its generated ID
-        // Object ID will be generated after SaveChangesAsync.
-        return Ok(bookmodel);
-    }
-
-
-
-    [HttpPost("Bulk")]
-    public async Task<IActionResult> AddBooks([FromBody] List<Book> bookmodel)
-    {
-        await _appDbContext.Books.AddRangeAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
-        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
-
-        // Return the added book with its generated ID
-        // Object ID will be generated after SaveChangesAsync.
-        return Ok(bookmodel);
-    }
-
+    #region GETMethods
 
     [HttpGet]
     public async Task<ActionResult<Book>> GetAllBooks()
@@ -87,10 +37,61 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         return Ok(books);
     }
 
+    #endregion
+
+    #region ADDMethods
+
+    [HttpPost]
+    public async Task<IActionResult> AddNewBook([FromBody] Book bookmodel)
+    {
+        await _appDbContext.Books.AddAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
+        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
+
+        // Return the added book with its generated ID
+        // Object ID will be generated after SaveChangesAsync.
+        return Ok(bookmodel);
+    }
 
 
+
+    [HttpPost("Bulk")]
+    public async Task<IActionResult> AddBooks([FromBody] List<Book> bookmodel)
+    {
+        await _appDbContext.Books.AddRangeAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
+        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
+
+        // Return the added book with its generated ID
+        // Object ID will be generated after SaveChangesAsync.
+        return Ok(bookmodel);
+    }
+
+
+    //Adding Record with Related Data
+    [HttpPost("AddwithAuthor")]
+    public async Task<IActionResult> AddwithAuthor([FromBody] Book bookmodel)
+    {
+        //var author = new Author()
+        //{
+        //    Name = "Test_Author",
+        //    Email = "Test_Author@gmail.com"
+        //};
+
+        //bookmodel.Author = author;
+
+        await _appDbContext.Books.AddAsync(bookmodel); // Just adds to the tracking, not yet saved to DB
+        await _appDbContext.SaveChangesAsync(); // Now it saves to the database
+
+        // Return the added book with its generated ID
+        // Object ID will be generated after SaveChangesAsync.
+        return Ok(bookmodel);
+    }
+
+    #endregion
+
+    #region UPDATEMethods
 
     // Update Book Record - However, there are 2 database hits happening here
+
     //(1) to fetch the existing record and (2) to save the updated record.
 
     [HttpPut("{Bookid}")]
@@ -111,7 +112,6 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
             return Ok(bookmodel);
         }
     }
-
 
 
 
@@ -161,8 +161,11 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         return Ok();
     }
 
+    #endregion
 
 
+    #region DELETEMethods
+    #endregion
 
     // Delete with Single Database Hit
     [HttpDelete("{BookId}")]
@@ -180,6 +183,8 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         } 
         return Ok($"Book with ID {BookId} Deleted.");
     }
+
+
 
 
 }
