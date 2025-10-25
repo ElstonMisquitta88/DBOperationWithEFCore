@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
-    "Method": "GetAllBooks",
+    "Method": "GetAllBooksAync",
     "RelativePath": "api/Books",
     "HttpMethod": "GET",
     "IsController": true,

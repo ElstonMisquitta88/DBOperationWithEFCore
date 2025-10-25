@@ -12,6 +12,48 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
     #region GETMethods
 
+
+
+    [HttpGet]
+    public async Task<ActionResult<Book>> GetAllBooksAync()
+    {
+        // Include not required here as we are projecting the Author data explicitly
+
+        /*
+         * When you write:
+            x.Author.Name
+            inside the projection, EF knows it must join the Author table to get that column value.
+            So it automatically generates SQL similar to:
+            SELECT b.Id, b.Title, b.Description, b.NoofPages, a.Name, a.Email
+            FROM Books AS b
+            LEFT JOIN Authors AS a ON b.AuthorId = a.Id;
+            That’s why .Include() is not needed here — the data is already explicitly fetched in your projection.
+         */
+        var book = await _appDbContext.Books
+            .Select(x => new Book() // Projection to Book object - Avoid using Anonymous Object . Good for API response consistency
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Description = x.Description,
+                NoofPages = x.NoofPages,
+                Author = x.Author == null ? null : new Author
+                {
+                    Name = x.Author.Name,
+                    Email = x.Author.Email
+                },
+                Language = x.Language == null ? null : new Language
+                {
+                    Title = x.Language.Title,
+                    Description = x.Language.Description
+                }
+            })
+            .ToListAsync();
+
+        return Ok(book);
+    }
+
+
+    /* Sample Done on Own 
     [HttpGet]
     public async Task<ActionResult<Book>> GetAllBooks()
     {
@@ -36,6 +78,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
             .ToListAsync();
         return Ok(books);
     }
+     */
 
     #endregion
 
