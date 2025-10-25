@@ -53,32 +53,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
     }
 
 
-    /* Sample Done on Own 
-    [HttpGet]
-    public async Task<ActionResult<Book>> GetAllBooks()
-    {
-        var books = await _appDbContext.Books
-            .Include(b => b.Language) // Include must come before Select
-            .Select(b => new
-            {
-                b.Id,
-                b.Title,
-                b.Description,
-                b.NoofPages,
-                b.IsActive,
-                b.CreatedOn,
-                b.LanguageID,
-                Language = b.Language == null ? null : new
-                {
-                    b.Language.Id,
-                    b.Language.Title,
-                    b.Language.Description
-                }
-            })
-            .ToListAsync();
-        return Ok(books);
-    }
-     */
+
 
     #endregion
 
