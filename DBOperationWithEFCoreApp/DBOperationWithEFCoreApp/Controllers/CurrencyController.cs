@@ -21,12 +21,21 @@ public class CurrencyController : ControllerBase
     [HttpGet("")]
     public async Task<IActionResult> GetAllCurrencies()
     {
+        //var result = await _appDbContext.Currencies.Select(c => new
+        //{
+        //    c.Id,
+        //    c.Title,
+        //    c.Description
+        //}).ToListAsync();
+
+        // AsNoTracking improves performance for read-only operations
         var result = await _appDbContext.Currencies.Select(c => new
         {
             c.Id,
             c.Title,
             c.Description
-        }).ToListAsync();
+        }).AsNoTracking().ToListAsync();
+
         return Ok(result);
     }
 
