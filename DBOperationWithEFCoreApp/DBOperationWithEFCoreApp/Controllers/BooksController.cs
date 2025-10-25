@@ -14,13 +14,30 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
 
 
-    [HttpGet]
-    public async Task<ActionResult<Book>> GetAllBooksAync()
+    // Early Loading of Related Data using Include
+    [HttpDelete("GetAllBooks_Async")]
+    public async Task<ActionResult<Book>> GetAllBooks_Async()
+    {
+        // For Author table related data use ThenInclude for nested related data
+
+        var book = await _appDbContext
+            .Books
+            .Include(x => x.Author) // Eager Loading of Related Data
+            .Include(x => x.Language) // Eager Loading of Related Data
+            .ToListAsync();
+        return Ok(book);
+    }
+
+
+
+
+    [HttpGet("GetAllBooks_WithNavigation_Aync")]
+    public async Task<ActionResult<Book>> GetAllBooks_WithNavigation_Aync()
     {
         // Include not required here as we are projecting the Author data explicitly
 
         /*
-         * When you write:
+            When you write:
             x.Author.Name
             inside the projection, EF knows it must join the Author table to get that column value.
             So it automatically generates SQL similar to:
