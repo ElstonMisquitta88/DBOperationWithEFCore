@@ -234,6 +234,8 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         // Single Query to database
         // No tracking used here
         var books = await _appDbContext.Books.Where(x => x.Id == 1008).ExecuteDeleteAsync();
+
+        
         return Ok();
     }
 
