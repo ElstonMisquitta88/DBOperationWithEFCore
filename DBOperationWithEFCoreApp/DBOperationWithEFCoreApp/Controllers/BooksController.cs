@@ -1,6 +1,7 @@
 ﻿using DBOperationWithEFCoreApp.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace DBOperationWithEFCoreApp.Controllers;
@@ -12,6 +13,32 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
     #region GETMethods
 
+    // From SQL Procedure
+    [HttpGet("GetAllBooks_SQLProcedure")]
+    public async Task<ActionResult<Book>> GetAllBooks_SQLProcedure()
+    {
+        //var books = await _appDbContext.Books.FromSql($"EXEC PROC_FETCHBOOOKS").ToListAsync();
+        // Based on Book entity
+        var param = new SqlParameter("@ID", 1007);
+        var books = await _appDbContext.Books.FromSql($"EXEC PROC_FETCHBOOOKS_ByID {param}").ToListAsync();
+
+        return Ok(books);
+    }
+
+
+
+    // From SQL query
+    [HttpGet("GetAllBooks_SQL")]
+    public async Task<ActionResult<Book>> GetAllBooks_SQL()
+    {
+        //Fetching data using Raw SQL Query
+        // Be cautious with SQL Injection when using raw SQL queries
+        // Based on Book entity
+
+        string _bookTitle = "Updated Title Bulk V7";
+        var books = await _appDbContext.Books.FromSql($"SELECT * FROM Books WHERE Title={_bookTitle}").ToListAsync();
+        return Ok(books);
+    }
 
 
     // Explicit Loading 
@@ -21,7 +48,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
     {
         var books = await _appDbContext.Books.FirstAsync();
         await _appDbContext.Entry(books).Reference(b => b.Author).LoadAsync();  // Explicit Loading of Related Data One to One
-        
+
         // fetch only author name
         var authorName = books.Author?.Name;
 
@@ -253,7 +280,7 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         // No tracking used here
         var books = await _appDbContext.Books.Where(x => x.Id == 1008).ExecuteDeleteAsync();
 
-        
+
         return Ok();
     }
 
