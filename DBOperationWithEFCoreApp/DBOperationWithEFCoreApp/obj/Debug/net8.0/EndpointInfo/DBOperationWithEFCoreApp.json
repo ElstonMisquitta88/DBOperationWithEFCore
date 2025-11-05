@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Books": {
+    "/api/Books/GetAllBooks_ExplicitLoading": {
       "get": {
         "tags": [
           "Books"
@@ -32,7 +32,67 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Books/GetAllBooks_Async": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books/GetAllBooks_WithNavigation_Aync": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books": {
       "post": {
         "tags": [
           "Books"
@@ -463,13 +523,6 @@
           },
           "description": {
             "type": "string",
-            "nullable": true
-          },
-          "books": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Book"
-            },
             "nullable": true
           }
         },

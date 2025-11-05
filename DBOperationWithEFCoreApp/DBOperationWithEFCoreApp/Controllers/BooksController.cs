@@ -14,8 +14,25 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
 
 
+    // Explicit Loading 
+
+    [HttpGet("GetAllBooks_ExplicitLoading")]
+    public async Task<ActionResult<Book>> GetAllBooks_ExplicitLoading()
+    {
+        var books = await _appDbContext.Books.FirstAsync();
+        await _appDbContext.Entry(books).Reference(b => b.Author).LoadAsync();  // Explicit Loading of Related Data One to One
+        
+        // fetch only author name
+        var authorName = books.Author?.Name;
+
+        await _appDbContext.Entry(books).Reference(b => b.Language).LoadAsync(); // Explicit Loading of Related Data One to One
+
+        return Ok(books);
+    }
+
+
     // Early Loading of Related Data using Include
-    [HttpDelete("GetAllBooks_Async")]
+    [HttpGet("GetAllBooks_Async")]
     public async Task<ActionResult<Book>> GetAllBooks_Async()
     {
         // For Author table related data use ThenInclude for nested related data
@@ -27,9 +44,6 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
             .ToListAsync();
         return Ok(book);
     }
-
-
-
 
     [HttpGet("GetAllBooks_WithNavigation_Aync")]
     public async Task<ActionResult<Book>> GetAllBooks_WithNavigation_Aync()
@@ -73,6 +87,10 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
 
     #endregion
+
+
+
+
 
     #region ADDMethods
 

@@ -8,5 +8,5 @@ public class Language
 
 
     // Navigation Property
-    public ICollection<Book> Books { get; set; }
+    //public ICollection<Book> Books { get; set; }
 }
