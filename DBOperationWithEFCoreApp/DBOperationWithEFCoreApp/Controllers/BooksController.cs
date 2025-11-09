@@ -13,6 +13,24 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
     #region GETMethods
 
+
+    // From SQL Procedure
+    [HttpGet("GetAllBooks_SQLProcedure_Database")]
+    public async Task<ActionResult<Book>> GetAllBooks_SQLProcedure_Database()
+    {
+        var param = new SqlParameter("@ID", 1007);
+        // var books = await _appDbContext.Database.SqlQuery<Book>($"EXEC PROC_FETCHBOOOKS_ByID {param}").ToListAsync();
+        var books = await _appDbContext.Database.ExecuteSqlAsync($"EXEC PROC_FETCHBOOOKS_ByID {param}"); // For Update Operations
+        return Ok(books);
+    }
+
+
+
+
+
+
+
+
     // From SQL Procedure
     [HttpGet("GetAllBooks_SQLProcedure")]
     public async Task<ActionResult<Book>> GetAllBooks_SQLProcedure()
@@ -24,7 +42,6 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
 
         return Ok(books);
     }
-
 
 
     // From SQL query
@@ -39,6 +56,12 @@ public class BooksController(AppDbContext _appDbContext) : ControllerBase
         var books = await _appDbContext.Books.FromSql($"SELECT * FROM Books WHERE Title={_bookTitle}").ToListAsync();
         return Ok(books);
     }
+
+
+
+
+
+
 
 
     // Explicit Loading 

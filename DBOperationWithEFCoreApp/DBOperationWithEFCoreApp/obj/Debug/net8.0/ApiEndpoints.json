@@ -176,6 +176,26 @@
   },
   {
     "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
+    "Method": "GetAllBooks_SQLProcedure_Database",
+    "RelativePath": "api/Books/GetAllBooks_SQLProcedure_Database",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DBOperationWithEFCoreApp.Data.Book",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DBOperationWithEFCoreApp.Controllers.BooksController",
     "Method": "GetAllBooks_WithNavigation_Aync",
     "RelativePath": "api/Books/GetAllBooks_WithNavigation_Aync",
     "HttpMethod": "GET",
